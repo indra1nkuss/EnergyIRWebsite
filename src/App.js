@@ -5,8 +5,8 @@ import { AnimatePresence } from 'framer-motion';
 // === COMPONENTS ===
 import Navbar from './components/Navbar';
 import AuroraBackground from './components/AuroraBackground';
-import MusicWidget from './components/MusicWidget'; // <--- 1. IMPORT INI
-import Footer from './components/Footer'; // <--- 1. IMPORT FOOTER
+import MusicWidget from './components/MusicWidget'; 
+import Footer from './components/Footer'; 
 
 // === PAGES ===
 import Beranda from './pages/Beranda';
@@ -29,7 +29,8 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    // PENTING: Gunakan basename disini, dan pastikan HANYA ADA SATU Router pembungkus
+    <Router basename="/EnergyIRWebsite">
       <div className="App">
         {/* Background Animation */}
         <AuroraBackground />
@@ -37,8 +38,7 @@ function App() {
         {/* Navigasi Atas */}
         <Navbar />
 
-        {/* === 2. WIDGET MUSIK (FLOATING) === */}
-        {/* Ditaruh disini agar muncul di semua halaman & posisinya fixed */}
+        {/* Widget Musik */}
         <MusicWidget />
         
         {/* Konten Halaman */}
@@ -50,11 +50,13 @@ function App() {
             <Route path="/tentang" element={<Tentang />} />
           </Routes>
         </AnimatePresence>
-    {/* 2. LETAKKAN FOOTER DISINI (DI BAWAH ROUTES) */}
+
+        {/* Footer */}
         <Footer /> 
 
       </div>
     </Router>
   );
 }
+
 export default App;
