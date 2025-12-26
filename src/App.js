@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Ganti BrowserRouter jadi HashRouter
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; 
 import { AnimatePresence } from 'framer-motion';
 
 // === COMPONENTS ===
@@ -29,19 +30,13 @@ function App() {
   }, []);
 
   return (
-    // PENTING: Gunakan basename disini, dan pastikan HANYA ADA SATU Router pembungkus
-    <Router basename="/EnergyIRWebsite">
+    // HAPUS PROPERTI basename. HashRouter tidak butuh basename.
+    <Router>
       <div className="App">
-        {/* Background Animation */}
         <AuroraBackground />
-        
-        {/* Navigasi Atas */}
         <Navbar />
-
-        {/* Widget Musik */}
         <MusicWidget />
         
-        {/* Konten Halaman */}
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Beranda />} />
@@ -51,9 +46,7 @@ function App() {
           </Routes>
         </AnimatePresence>
 
-        {/* Footer */}
         <Footer /> 
-
       </div>
     </Router>
   );
