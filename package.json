@@ -2,7 +2,7 @@
   "name": "pengumuman-pemenang-training",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/indra1nkuss/EnergyIRWebsite",
+  "homepage": "https://indra1nkuss.github.io/EnergyIRWebsite",
   "dependencies": {
     "framer-motion": "^10.0.0",
     "react": "^18.2.0",
