@@ -1,0 +1,98 @@
+/* AuroraBackground.css */
+
+/* Wrapper Utama: Wajib Fixed dan Paling Belakang */
+.aurora-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9999; /* Pastikan di belakang segalanya */
+  background-color: #020617; /* Slate 950 (Hitam Kebiruan) */
+  overflow: hidden;
+  pointer-events: none; /* Supaya bisa diklik tembus */
+}
+
+/* Base Gradient tipis */
+.aurora-base {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, transparent 100%);
+  opacity: 0.4;
+}
+
+/* Style Umum Bola Cahaya */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* Blur tinggi bikin efek asap/aurora */
+  opacity: 0.6; /* Transparansi */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Blob 1: Hijau Aurora (Teal) */
+.blob-1 {
+  background: #2dd4bf;
+  width: 50vw;
+  height: 50vw;
+  top: -10%;
+  left: -10%;
+  animation-name: float-1;
+  animation-duration: 20s;
+}
+
+/* Blob 2: Ungu Cosmic */
+.blob-2 {
+  background: #a855f7;
+  width: 40vw;
+  height: 40vw;
+  bottom: -10%;
+  right: -10%;
+  animation-name: float-2;
+  animation-duration: 25s;
+}
+
+/* Blob 3: Biru Langit */
+.blob-3 {
+  background: #3b82f6;
+  width: 30vw;
+  height: 30vw;
+  top: 40%;
+  left: 40%;
+  opacity: 0.4;
+  animation-name: float-3;
+  animation-duration: 22s;
+}
+
+/* Keyframes Gerakan Meliuk */
+@keyframes float-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 10vh) scale(1.1); }
+  100% { transform: translate(-5vw, 20vh) scale(0.9); }
+}
+
+@keyframes float-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-10vw, -10vh) scale(1.2); }
+  100% { transform: translate(5vw, -5vh) scale(0.8); }
+}
+
+@keyframes float-3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-15vw, 10vh) scale(0.8); }
+  100% { transform: translate(10vw, -10vh) scale(1.1); }
+}
+
+/* Overlay Grid Halus */
+.aurora-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
