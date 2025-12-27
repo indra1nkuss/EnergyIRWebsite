@@ -1,15 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Reveal from '../components/Reveal';
+import Reveal from '../components/Reveal'; // Pastikan path komponen ini benar
 import '../App.css';
 
+// ==========================================
+// 1. IMPORT SEMUA GAMBAR (WAJIB DI SRC/ASSETS)
+// ==========================================
+// Pastikan file-file ini ada di folder "src/assets/"
+import irLogo from '../assets/irlogo.png'; // Logo Utama
+
+// Foto Tim (Sesuaikan nama file dengan yang ada di folder Anda)
+import goldyPic from '../assets/irlogo.png'; 
+import priyoPic from '../assets/irlogo.png';
+import mariniPic from '../assets/irlogo.png';
+import indraPic from '../assets/indra.png';
+import juliPic from '../assets/irlogo.png';
+
 const Tentang = () => {
+  
+  // Data Tim
   const teamMembers = [
-    { id: 1, name: 'Goldy Raymond PPS', role: 'EC Manager', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80' },
-    { id: 2, name: 'M Priyo Pambudi', role: 'EC Supervisor', img: 'https://images.unsplash.com/photo-1573496359-7013ac2bebb5?auto=format&fit=crop&w=400&q=80' },
-    { id: 3, name: 'Marini', role: 'EC Document Control', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
-    { id: 4, name: 'Indra Nurul Kusuma', role: 'EC Analyst', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80' },
-    { id: 5, name: 'Juliansyah', role: 'EC Patrol & Control', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80' },
+    { 
+      id: 1, 
+      name: 'Goldy Raymond PPS', 
+      role: 'EC Manager', 
+      img: goldyPic 
+    },
+    { 
+      id: 2, 
+      name: 'M Priyo Pambudi', 
+      role: 'EC Supervisor', 
+      img: priyoPic 
+    },
+    { 
+      id: 3, 
+      name: 'Marini', 
+      role: 'EC Document Control', 
+      img: mariniPic 
+    },
+    { 
+      id: 4, 
+      name: 'Indra Nurul Kusuma', 
+      role: 'EC Analyst', 
+      img: indraPic 
+    },
+    { 
+      id: 5, 
+      name: 'Juliansyah', 
+      role: 'EC Patrol & Control', 
+      img: juliPic 
+    },
   ];
 
   return (
@@ -19,50 +59,53 @@ const Tentang = () => {
     >
       <div className="container">
         
-        {/* HEADER */}
+        {/* HEADER SECTION */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <Reveal width="100%">
             <div className="logo-circle-wrapper">
-               {/* Ganti src ini dengan logo perusahaan asli jika ada */}
-               <img src="https://via.placeholder.com/150" alt="Logo" className="about-logo" />
+               {/* Gunakan variabel import 'irLogo' disini */}
+               <img src={irLogo} alt="Logo Energy Future" className="about-logo" />
             </div>
           </Reveal>
           
           <Reveal width="100%" delay={0.1}>
-             <h1 className="about-title">Energy Future</h1>
+             <h1 className="about-title">Energy Team</h1>
              <p className="about-subtitle">Empowering Through Knowledge</p>
           </Reveal>
         </div>
 
-        {/* PROFIL PERUSAHAAN */}
+        {/* PROFILE SECTION */}
         <Reveal width="100%" delay={0.2}>
-          <div className="glass-panel">
+          <div className="glass-panel" style={{ marginBottom: '4rem' }}>
             <div className="section-header"><h3>Tentang Kami</h3></div>
             <div className="about-text">
               <p>
-                Energy Future adalah portal manajemen pelatihan terintegrasi yang didedikasikan untuk 
-                mengembangkan talenta terbaik di sektor energi. Kami berkomitmen menyediakan 
-                platform yang transparan, modern, dan mudah diakses untuk memantau perkembangan 
-                kompetensi karyawan.
+                Energy Team merupakan unit kerja strategis yang dibentuk secara khusus dengan tanggung jawab utama melakukan pemantauan, analisis, 
+                serta pengendalian konsumsi energi di seluruh operasional Pratama. Saat ini, 
+                fokus pengawasan tim tertuju pada dua sumber energi utama yang menopang aktivitas produksi di PT Pratama Abadi Industri, yaitu energi listrik dan gas. Melalui manajemen yang terstruktur, 
+                tim ini berkomitmen untuk memastikan penggunaan energi berjalan secara efisien, terukur, dan berkelanjutan.
               </p>
             </div>
           </div>
         </Reveal>
 
-        {/* TIM KAMI (GRID FIXED) */}
+        {/* TEAM SECTION (SESUAI CSS BARU) */}
         <div style={{ marginBottom: '4rem' }}>
           <Reveal width="100%">
-             <h2 className="section-divider-title">Tim Kami</h2>
+             <h2 className="section-title">Tim Kami</h2>
           </Reveal>
 
-          {/* GRID: Menggunakan class 'team-grid' yang sudah diperbaiki di CSS */}
           <div className="team-grid">
             {teamMembers.map((member, i) => (
-              <Reveal key={member.id} width="100%" delay={i * 0.1}>
+              // Kita bungkus Reveal di luar card agar animasi masuknya rapi per item
+              <Reveal key={member.id} width="100%" delay={i * 0.1}> 
                 <div className="team-card">
+                  {/* Bagian Foto */}
                   <div className="team-img-wrapper">
                     <img src={member.img} alt={member.name} />
                   </div>
+                  
+                  {/* Bagian Info (Nama & Jabatan) */}
                   <div className="team-info">
                     <h4>{member.name}</h4>
                     <span className="team-role">{member.role}</span>
@@ -79,7 +122,7 @@ const Tentang = () => {
             <h3>Hubungi Kami</h3>
             <div className="contact-details-row">
               <div className="contact-item">
-                <span style={{fontSize:'1.5rem'}}>📧</span>
+                <span className="icon">📧</span>
                 <div className="text">
                   <small>Email</small>
                   <strong>admin@energyfuture.co.id</strong>
@@ -87,7 +130,7 @@ const Tentang = () => {
               </div>
               
               <div className="contact-item">
-                <span style={{fontSize:'1.5rem'}}>☎️</span>
+                <span className="icon">☎️</span>
                 <div className="text">
                   <small>Extension</small>
                   <strong>500</strong>

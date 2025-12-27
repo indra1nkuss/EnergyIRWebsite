@@ -3,20 +3,36 @@ import { motion } from 'framer-motion';
 import Reveal from '../components/Reveal';
 import '../App.css';
 
-const fotoPemenang = [
-  // Data ini tetap saya simpan text-nya di sini agar Anda mudah mengingat ini foto apa
-  // Tapi text-nya TIDAK AKAN DITAMPILKAN di layar.
-  { id: 1, src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80' },
-];
+// ==========================================
+// 1. IMPORT FOTO DARI FOLDER ASSETS
+// ==========================================
+// Pastikan file-file ini BENAR-BENAR ADA di folder "src/assets/"
+// Anda bisa ganti "doc1.jpg" dengan nama file asli Anda (misal: "lomba-17an.jpg")
+
+import doc1 from '../assets/indra.png'; // Ganti nama file ini
+import doc2 from '../assets/indra.png'; // Ganti nama file ini
+import doc3 from '../assets/indra.png';
+import doc4 from '../assets/indra.png';
+import doc5 from '../assets/indra.png';
+import doc6 from '../assets/indra.png';
+
+// Jika fotonya kurang dari 6, hapus import yang tidak perlu.
+// Jika lebih, tambahkan sendiri barisnya.
 
 const Dokumentasi = () => {
+
+  // ==========================================
+  // 2. MASUKKAN VARIABEL IMPORT KE DATA
+  // ==========================================
+  const fotoPemenang = [
+    { id: 1, src: doc1 }, // Panggil variabel import di sini (tanpa kutip)
+    { id: 2, src: doc2 },
+    { id: 3, src: doc3 },
+    { id: 4, src: doc4 },
+    { id: 5, src: doc5 },
+    { id: 6, src: doc6 },
+  ];
+
   return (
     <motion.div 
       className="page-transition"
@@ -31,7 +47,7 @@ const Dokumentasi = () => {
              <h1 className="section-title">Galeri Momen</h1>
           </Reveal>
           <Reveal width="100%" delay={0.1}>
-             <p className="section-subtitle">Rekaman kegiatan dan pencapaian terbaik.</p>
+             <p className="section-subtitle">Daftar Pemenang Training Online 2025.</p>
           </Reveal>
         </div>
         
@@ -39,16 +55,19 @@ const Dokumentasi = () => {
         <div className="dokumentasi-grid">
           {fotoPemenang.map((item, i) => (
             <Reveal key={item.id} width="100%" delay={ (i % 3) * 0.1 }>
-                {/* Card ini sekarang berfungsi sebagai bingkai saja.
-                   Saya beri padding 10px agar terlihat seperti bingkai foto modern.
-                */}
+                {/* BINGKAI FOTO */}
                 <div className="modern-card" style={{ padding: '10px', cursor: 'pointer', height: '100%' }}>
                   
-                  {/* Container Foto (Rasio 4:3 otomatis dari CSS) */}
-                  {/* margin-bottom saya set 0 karena tidak ada teks dibawahnya */}
-                  <div className="doc-img-container" style={{ marginBottom: 0 }}>
-                    <img src={item.src} alt="Dokumentasi" />
-                  </div>
+                 {/* LOGIKA ANIMATION DELAY:
+                   Kita memberi delay acak pada animasi CSS 'floating'
+                   agar kartu tidak bergerak naik-turun secara bersamaan.
+                */}
+                <div 
+                  className="gallery-card" 
+                  style={{ animationDelay: `${i * 0.5}s` }} 
+                >
+                  <img src={item.src} alt={`Dokumentasi ${item.id}`} />
+                </div>
 
                 </div>
             </Reveal>
