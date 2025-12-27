@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/EnergyIRWebsite/static/css/main.21c7eac8.css",
-    "main.js": "/EnergyIRWebsite/static/js/main.9ccadb4a.js",
+    "main.css": "/EnergyIRWebsite/static/css/main.df805eab.css",
+    "main.js": "/EnergyIRWebsite/static/js/main.6b3301f2.js",
     "static/js/156.c35f1b0c.chunk.js": "/EnergyIRWebsite/static/js/156.c35f1b0c.chunk.js",
+    "static/media/energi .jpeg": "/EnergyIRWebsite/static/media/energi .574771616ee0db35c6a6.jpeg",
+    "static/media/indra.png": "/EnergyIRWebsite/static/media/indra.f27813b91050a687ed3c.png",
+    "static/media/irlogo.png": "/EnergyIRWebsite/static/media/irlogo.b106c8ffaa590d223316.png",
     "index.html": "/EnergyIRWebsite/index.html",
-    "main.21c7eac8.css.map": "/EnergyIRWebsite/static/css/main.21c7eac8.css.map",
-    "main.9ccadb4a.js.map": "/EnergyIRWebsite/static/js/main.9ccadb4a.js.map",
+    "main.df805eab.css.map": "/EnergyIRWebsite/static/css/main.df805eab.css.map",
+    "main.6b3301f2.js.map": "/EnergyIRWebsite/static/js/main.6b3301f2.js.map",
     "156.c35f1b0c.chunk.js.map": "/EnergyIRWebsite/static/js/156.c35f1b0c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21c7eac8.css",
-    "static/js/main.9ccadb4a.js"
+    "static/css/main.df805eab.css",
+    "static/js/main.6b3301f2.js"
   ]
 }
